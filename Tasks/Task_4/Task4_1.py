@@ -8,6 +8,9 @@ elif s[1] == "-":
 elif s[1] == "*":
     print(num_1 * num_2)
 elif s[1] == "/":
-    print(num_1 / num_2)
+    if num_2 == 0:
+        print("Ошибка! Деление на 0 невозможно.")
+    else:
+        print(num_1 / num_2)
 else:
     print("Unknown command")
