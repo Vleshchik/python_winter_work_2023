@@ -10,12 +10,11 @@ for i in range(n):
 for y in range(n):
     print(a[y])
 def srt(a):
-    tes = set()
+    lst = []
     for i in range(n):
         b = a[i]
         for j in range(m):
-            tes.add(b[j])
-    lst = list(tes)
+            lst.append(b[j])
     x = len(lst) - 3
     lst = sorted(lst)[x:]
     return lst
