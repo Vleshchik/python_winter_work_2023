@@ -5,6 +5,7 @@ def diapazon(lst):
         print(i)
         n1 = int(i[0])
         n2 = int(i[2])
+        print(i[3])
         while n1 <= n2:
             res.append(n1)
             n1 += 1
