@@ -17,5 +17,5 @@ ws = wb.active
 ws.append(title)
 for i in table_sort:
     ws.append(i)
-ws.append(["Итого", sum_salary])
+ws.append(['',"Итого",'','', sum_salary])
 wb.save('task11_2.xlsx')

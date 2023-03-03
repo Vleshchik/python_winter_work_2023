@@ -8,4 +8,4 @@ def odd():
             continue
 gf = odd()
 for i in gf:
-    print(i, end = ' ')
+    print(i, end= ' ')

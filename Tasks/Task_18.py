@@ -1,25 +1,29 @@
-class Data:
-    def __init__(self, *info):
-        self.info = list(info)
+class Lesson:
+    def __init__(self, *lessons):
+        self.lessons = list(lessons)
     def __getitem__(self, i):
-        return self.info[i]
+        return self.lessons[i]
 class Teacher:
     def __init__(self):
         self.work = 0
-    def teach(self, info, *pupil):
+    def teach(self, lessons, *pupil):
         for i in pupil:
-            i.take(info)
+            i.take(lessons)
             self.work += 1
+    def set_task(self):
+        for i in lessons:
+            i.take(lessons)
+
 class Pupil:
     def __init__(self):
         self.knowledge = []
     def take(self, info):
         self.knowledge.append(info)
-lesson = Data('class', 'object', 'inheritance', 'polymorphism', 'encapsulation')
+class Task:
+
+
+
+lesson = Lesson('class', 'object', 'inheritance', 'polymorphism', 'encapsulation')
 marIvanna = Teacher()
 vasya = Pupil()
 petya = Pupil()
-marIvanna.teach(lesson[2], vasya, petya)
-marIvanna.teach(lesson[0], petya)
-print(vasya.knowledge)
-print(petya.knowledge)

@@ -1,5 +1,5 @@
 str = str(input())
-marks = '''!@#$%^&*(){}[]\|;:'",.<>/?'''
+marks = '''!@#$%^&*(){}[]\|;:'",.<>/?_-'''
 for x in str:
     if x in marks:
         str = str.replace(x, "")

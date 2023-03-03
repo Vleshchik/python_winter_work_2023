@@ -1,4 +1,4 @@
-lst = [str(x) for x in input().split(', ')] #1-2, 4-4, 3-6
+lst = [str(x) for x in input().split()] #1-2, 4-4, 3-6
 
 def diapazon(lst):
     res = []

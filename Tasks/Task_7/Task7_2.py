@@ -3,9 +3,7 @@ n = int(input())
 string = list(str)
 if n > 26:
     n = n % 26
-
 def code(string, n):
-
     for i in range(len(string)):
         if 65 <= ord(string[i]) <= 90 or 97 <= ord(string[i]) <= 122:
             if ord(string[i]) + n > 90 and ord(string[i]) + n < 97:
