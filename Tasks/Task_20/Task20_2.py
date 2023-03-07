@@ -12,9 +12,7 @@ for i in range(n_lst):
         if max_c < len(st):
             max_c = len(st)
     lst.append(st)
-print(lst)
 df = pd.DataFrame(lst, columns=[i for i in range(max_c)])
-print(df)
 for i in df.columns:
     sum_n += df[i].sum()
 print(sum_n)
