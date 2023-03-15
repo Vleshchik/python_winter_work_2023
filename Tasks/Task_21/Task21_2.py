@@ -1,63 +1,24 @@
-import numpy as np
-y = int(input()) #число столбцов в матрице
-x = int(input()) #число строк в матрице
-rang = [int(i) for i in input().split()] #диапазон чисел
-matrix = np.random.randint(rang[0], rang[1], (x, y))
+
+matrix = [[1, 4, 2, 2],[1, 1, 2, 1],[4, 1, 3, 4],[1, 1, 4, 1]]
 for i in matrix:
     print(i)
-def short_path():
-    i = 0
-    j = 0
-    sum = matrix[0, 0]
-    path = []
-    path.append(sum)
-    while i != len(matrix) - 1 and j != len(matrix[i]) - 1:
-        n1 = matrix[i + 1, j]
-        n2 = matrix[i, j + 1]
-        if n1 < n2:
-            sum += n1
-            i += 1
-            path.append(n1)
-        elif n1 > n2:
-            sum += n2
-            j += 1
-            path.append(n2)
-        else:
-            if i + 2 <= len(matrix):
-                if j + 2 <= len(matrix[i]):
-                    n_1 = matrix[i + 2, j]
-                    n_2 = matrix[i, j + 2]
-                    if n_1 < n_2:
-                        sum += n1
-                        i += 1
-                        path.append(n1)
-                    else:
-                        sum += n2
-                        j += 1
-                        path.append(n2)
-                else:
-                    sum += n1
-                    i += 1
-                    path.append(n1)
-            else:
-                sum += n2
-                j += 1
-                path.append(n2)
-    else:
-        if i == len(matrix):
-            for z in range(j, len(matrix[i]) + 1):
-                n = matrix[i, z]
-                sum += n
-                path.append(n)
-            sum += matrix[-1,-1]
-            path.append(matrix[-1,-1])
-        else:
-            for z in range(i + 1, len(matrix)):
-                n = matrix[z, j]
-                sum += n
-                path.append(n)
-    return path, sum
+def minPathSum(matrix):
+    res = 0
+    if matrix:
+        n, m = len(matrix), len(matrix[0])
+        dp = [[0] * m for _ in range(n)]
+        dp[0][0] = matrix[0][0]
+        for i in range(1, m):
+            dp[0][i] = dp[0][i - 1] + matrix[0][i]
 
-s_p, s = short_path()
-print(f'Самый короткий маршрут: {s_p}')
-print(f'Сумма чисел самого короткого маршрута: {s}')
+        for i in range(1, n):
+            dp[i][0] = dp[i - 1][0] + matrix[i][0]
+
+        for i in range(1, n):
+            for j in range(1, m):
+                dp[i][j] = matrix[i][j]
+                dp[i][j] += min(dp[i][j - 1], dp[i - 1][j])
+
+        res = dp[-1][-1]
+    return res
+print(minPathSum(matrix))
