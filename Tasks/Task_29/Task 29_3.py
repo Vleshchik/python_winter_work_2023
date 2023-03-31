@@ -1,15 +1,17 @@
 
 def isomorph(x, y):
-    b = False
-    if len(x) == len(y):
+    if len(x) != len(y):
+        return False
+    else:
         for i in range(len(x)):
             for j in range(len(y)):
-                if i != j and x[i] == x[j] and y[i] == y[j]:
-                    b = True
-    return print(b)
-isomorph('CBAABC', 'DEFFED')
-isomorph('XXX', 'YYY')
-isomorph('RAMBUNCTIOUSLY', 'THERMODYNAMICS')
-isomorph('AB', 'CC')
-isomorph('XXY', 'XYY')
-isomorph('ABAB', 'CD')
+                if i != j and (x[i] == x[j] and y[i] != y[j]) or (x[i] != x[j] and y[i] == y[j]):
+                    return False
+    return True
+print(isomorph('CBAABC', 'DEFFED'))
+print(isomorph('XXX', 'YYY'))
+print(isomorph('RAMBUNCTIOUSLY', 'THERMODYNAMICS'))
+print(isomorph('AB', 'CC'))
+print(isomorph('XXY', 'XYY'))
+print(isomorph('ABAB', 'CD'))
+print(isomorph('AB','CD'))
